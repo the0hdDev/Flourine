@@ -46,7 +46,7 @@ inline std::vector<Token> tokenize(const std::string& str) {
         if (std::isalpha(c)) {
             buff.push_back(c);
             i++;
-            while (std::isalnum(str.at(i))) {
+            while (i < str.size() && std::isalnum(str.at(i))) {
                 buff.push_back(str.at(i));
                 i++;
             }
@@ -58,11 +58,11 @@ inline std::vector<Token> tokenize(const std::string& str) {
                 std::cerr << "you suck\n";
                 exit(1);
             }
-        } else if (std::isdigit(c)) {
+         } else if (std::isdigit(c)) {
             buff.push_back(c);
             i++;
-            while (std::isdigit(str.at(c))) {
-                buff.push_back(str.at(c));
+            while (i < str.size() && std::isdigit(str.at(i))) {
+                buff.push_back(str.at(i));
                 i++;
             }
             i--;
@@ -76,6 +76,8 @@ inline std::vector<Token> tokenize(const std::string& str) {
             std::cout << "you suck 2" << std::endl;
         }
     }
+
+    std::cout << "sigma";
 
     return tokens;
 }
