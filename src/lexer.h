@@ -9,16 +9,6 @@
 #ifndef READFILE_H
 #define READFILE_H
 
-const char *fileName = "main.tlg";
-
-void setFileName(const char *name) {
-    if (name == NULL) {
-        perror("File name cannot be NULL");
-    } else {
-        fileName = name;
-    }
-}
-
 uint64_t getFileSize(FILE *file) {
     fseek(file, 0, SEEK_END);
     uint64_t size = ftell(file) + 1;
@@ -26,7 +16,7 @@ uint64_t getFileSize(FILE *file) {
     return size;
 }
 
-char* readFile() {
+char* readFile(char* fileName[]) {
     FILE *mainFilePtr = fopen(fileName, "r");
     if (!mainFilePtr) {
         perror("File not found or cant be opened");

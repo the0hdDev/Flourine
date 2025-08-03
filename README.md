@@ -1,2 +1,2 @@
-# tlang
-TLang Programming Language's Compiler
+# Flourine
+Flourine Programming Language's Compiler

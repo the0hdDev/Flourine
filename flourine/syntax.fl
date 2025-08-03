@@ -1,0 +1,8 @@
+let:string randomString = "mutual string"
+const:int randomInt = 1 // Constant int
+var:char randomCharArr[] = "CString that doesnt give a fuck"
+
+
+print(randomString, randomInt, randomCharArr)
+
+return 67
