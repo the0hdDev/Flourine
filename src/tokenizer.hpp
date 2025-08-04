@@ -8,6 +8,10 @@
 #include <vector>
 #include <cctype>
 
+class Tokenizer {
+public:
+Tokenizer() {};
+~Tokenizer() {};
 inline std::uint64_t getFileSize(const std::string& path) {
     return std::filesystem::file_size(path) + 1;
 }
@@ -81,3 +85,22 @@ inline std::vector<Token> tokenize(const std::string& str) {
 
     return tokens;
 }
+
+std::string tokenToAsm(const std::vector<Token>& tokens) {
+    std::stringstream asmCode;
+    asmCode << "global _start\nstart:\n";
+    for (int i = 0; i < tokens.size(); i++) {
+        const Token& token = tokens.at(i);
+        if (token.type == TokenType::_return) {
+            if (i+ 1 < tokens.size() && tokens.at(i + 1).type == TokenType::int_lit) {
+                if (i + 2 < tokens.size() && tokens.at(i + 1).type == TokenType::semi) {
+                    asmCode << "    mov rax, 60\n";
+                    asmCode << "    mov rdi, " << tokens.at(i + 1).value.value() << "\n";
+                }
+            }
+        }
+    }
+
+    return asmCode.str();
+}
+};

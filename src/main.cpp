@@ -1,24 +1,7 @@
 #include <iostream>
 #include <string>
-#include "lexer.hpp"
+#include "tokenizer.hpp"
 
-std::strings tokenToAsm(const std::vector<Token>& tokens) {
-    std::stringstream asmCode;
-    asmCode << "global _start\nstart:\n";
-    for (int i = 0; i < tokens.size(); i++) {
-        const Token& token = tokens.at(i);
-        if (token.type == TokenType::_return) {
-            if (i+ 1 < tokens.size() && tokens.at(i + 1).type == TokenType::int_lit) {
-                if (i + 2 < tokens.size() && tokens.at(i + 1).type == TokenType::semi) {
-                    asmCode << "    mov rax, 60\n";
-                    asmCode << "    mov rdi, " << tokens.at(i + 1).value.value() << "\n";
-                }
-            }
-        }
-    }
-
-    return asmCode;
-}
 
 int main(int argc, char* argv[]) {
     if (argc != 2) {
@@ -26,11 +9,12 @@ int main(int argc, char* argv[]) {
         return EXIT_FAILURE;
     }
 
+    Tokenizer* tokenizer = new Tokenizer();
 
-    std::string fileContent = readFile(argv[1]);
-    std::vector<Token> tokens = tokenize(fileContent);
+    std::string fileContent = tokenizer->readFile(argv[1]);
+    std::vector<Tokenizer::Token> tokens = tokenizer->tokenize(fileContent);
 
-    std::cout << std::to_string(tokenToAsm(tokens)) << std::endl;
+    std::cout << std::to_string(tokenizer->tokenToAsm(tokens)) << std::endl;
 
 
     return EXIT_SUCCESS;
