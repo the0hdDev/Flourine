@@ -1,0 +1,9 @@
+# linguist/flourine.yml
+type: programming
+color: "#FF00FF"
+extensions:
+  - ".fl"
+tm_scope: source.flourine
+ace_mode: text
+codemirror_mode: clike
+codemirror_mime_type: text/x-flourine

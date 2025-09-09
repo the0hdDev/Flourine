@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "tokenizer.hpp"
+#include "../lexer/lexer_main.hpp"
 
 
 int main(int argc, char* argv[]) {
