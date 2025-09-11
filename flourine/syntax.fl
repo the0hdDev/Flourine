@@ -41,4 +41,8 @@ const:umap unorderedTestMap; // Standart Unordered Map
 
 print(randomString, randomInt, randomCharArr)
 
-return 67
+func main():void {}
+func returnString():string {
+
+    return "sigma!!!"
+}
