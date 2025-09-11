@@ -39,7 +39,7 @@ inline std::vector<Lexer::Token> tokenize(const std::string& str) {
                 tokens.push_back(Lexer::Token{.type = Lexer::TokenType::_return});
                 buff.clear();
             } else {
-                std::cerr << "you suck\n";
+                std::cerr << "Error\n";
                 exit(1);
             }
         } else if (std::isdigit(c)) {
