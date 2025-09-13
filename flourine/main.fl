@@ -1,1 +1,6 @@
-return 69
+
+
+func main(): void
+{
+    return 69;
+}
