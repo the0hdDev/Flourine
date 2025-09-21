@@ -6,6 +6,5 @@ add_executable(flourine
 target_link_libraries(flourine
         PRIVATE
         fl_parsing
-        fl_lexer
 )
 

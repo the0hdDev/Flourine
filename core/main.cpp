@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "lexer/lexer_main.h"
+#include "parsing/lexer/lexer_main.h"
 
 
 int main(int argc, char* argv[]) {
